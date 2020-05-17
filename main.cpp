@@ -16,7 +16,7 @@ int main(int argc, char ** argv)
     }
 
     yuv * video = new yuv();
-    video->open_file(argv[1], 2/*stoi(argv[2], nullptr, 10)*/, stoi(argv[3], nullptr, 10), stoi(argv[4], nullptr, 10));
+    video->open_file(argv[1], stoi(argv[2], nullptr, 10), stoi(argv[3], nullptr, 10), stoi(argv[4], nullptr, 10));
 
     results * report = new results(video->width, video->height, video->num_frames);
 

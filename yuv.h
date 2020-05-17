@@ -1,13 +1,13 @@
 #pragma once
 #include <fstream>
+#include "results.h"
 
 class yuv
 {
 public:
-    const int block_size = 8;
-
     std::ifstream video_file;
-    int n_frames;
+    int num_frames;
+    int cur_frame_n;
     int width;
     int height;
     unsigned char ** ref_frame;
@@ -19,6 +19,9 @@ public:
     ~yuv();
     void open_file(const char * file_path, int n_frames, int width, int height);
     void load_nth_frame(int n);
-    void get_block(int pos_y, int pos_x, int ref_or_cur);
+    void get_block(int pos_y, int pos_x);
+    void pred_cur_frame(results * report);
+
+    int subtratorImpreciso(int op1, int op2, int BitsIMP);
 };
 
